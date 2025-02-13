@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>smga</groupId>
+  <artifactId>smga-parent</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <!-- List your child modules here -->
+  <modules>
+    <module>gestion-pedidos</module>
+    <module>dinosaurios</module>
+    <module>mision-marte</module>
+    <module>gestion-hechizos</module>
+  </modules>
+
+  <properties>
+    <!-- Adapt as needed, but for Hystrix you usually need Hoxton.x -->
+    <spring.boot.version>2.7.5</spring.boot.version>
+    <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+    <java.version>11</java.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Spring Boot BOM -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Spring Cloud BOM (Hoxton.SR12 includes Hystrix support) -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
